@@ -1,7 +1,7 @@
 import pins from '../../helpers/data/pinData';
 
 const pinView = (obj) => {
-  const domString = `<div class="card mb-3" style="max-width: 540px;">
+  const domString = `<div class="card pinCard${obj.uid} mb-3" style="max-width: 540px;">
   <div class="row no-gutters">
     <div class="col-md-4">
       <img src="${obj.image}" class="card-img" alt="...">
@@ -10,16 +10,18 @@ const pinView = (obj) => {
       <div class="card-body">
         <h5 class="card-title">${obj.name}</h5>
         <button class="btn btn-warning update-pin">Update This Pin</button>
-        <button class="btn btn-danger remove-pin">Remove This Pin</button>
+        <button class="btn btn-danger remove-pin" id="${obj.uid}">Remove This Pin</button>
         <a href="#" class="pinterest-link">Go To Site</a>
       </div>
     </div>
   </div>
 </div>`;
 
-  $('body').on('click', 'remove-pin', (e) => {
+  $('body').on('click', '.remove-pin', (e) => {
+    e.stopImmediatePropagation();
     const firebasekey = e.currentTarget.id;
-    $(`.card${firebasekey}`).remove();
+    console.warn(firebasekey);
+    $(`.pinCard${firebasekey}`).remove();
     pins.deletePin(firebasekey);
   });
   return domString;

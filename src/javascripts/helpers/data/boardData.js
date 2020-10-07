@@ -38,20 +38,14 @@ const addBoard = (data) => axios.post(`${baseUrl}/boards.json`, data).then((resp
     .catch((error) => console.warn(error));
 });
 
-const deleteBoard = (boardUid) => {
-  pins
-    .getPinsOnBoards(boardUid)
-    .then((response) => {
-      response.forEach((item) => {
-        pins.deletePin(item.uid);
-      });
-    })
-    .then(() => {
-      getSingleBoard(boardUid).then((response) => {
-        console.warn(response.uid);
-        axios.delete(`${baseUrl}/boards/${response.uid}.json`);
-      });
+const deleteBoard = (firebaseKey) => {
+  pins.getPinsOnBoards(firebaseKey).then((response) => {
+    response.forEach((item) => {
+      pins.deletePin(item.uid);
     });
+  }).then(() => {
+    axios.delete(`${baseUrl}/boards/${firebaseKey}.json`);
+  });
 };
 
 const updateBoard = (uid, dataObject) => axios.patch(`${baseUrl}/boards/${uid}.json`, dataObject);

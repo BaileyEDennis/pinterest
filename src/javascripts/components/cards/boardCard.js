@@ -2,7 +2,7 @@ import pins from '../views/pinView';
 import deleteBoard from '../../helpers/data/boardData';
 
 const buildBoards = (board) => {
-  const domString = `<div class="card mb-3" id="${board.uid}" style="max-width: 540px;">
+  const domString = `<div class="card boardCard${board.uid} mb-3" style="max-width: 540px;">
   <div class="row no-gutters">
     <div class="col-md-4">
       <img src="${board.image}" class="card-img" alt="...">
@@ -22,10 +22,10 @@ const buildBoards = (board) => {
 
   $('body').on('click', '.remove-board', (e) => {
     e.stopImmediatePropagation();
-    const firebaseKey = e.currentTarget.id;
-    console.warn(firebaseKey);
-    $(`#remove${firebaseKey}`).remove();
-    deleteBoard.deleteBoard(firebaseKey);
+    const firebasekey = e.currentTarget.id;
+    console.warn(firebasekey);
+    $(`.boardCard${firebasekey}`).remove();
+    deleteBoard.deleteBoard(firebasekey);
   });
   $('body').on('click', '.see-associated-pins', (e) => {
     e.stopImmediatePropagation();
