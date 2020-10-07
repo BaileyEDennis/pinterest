@@ -11,9 +11,9 @@ const buildBoards = (board) => {
       <div class="card-body">
         <h5 class="card-title">${board.name}</h5>
         <div class="button-group">
-          <a href="#" class="btn btn-info see-associated-pins" id="show${board.uid}">Pins</a>
+          <button class="btn btn-info see-associated-pins" id="${board.uid}">Pins</button>
           <button class="btn btn-warning update-board" id="update${board.uid}">Update This Board</button>
-          <button class="btn btn-danger remove-board" id="remove${board.uid}">Remove This Board</button>
+          <button class="btn btn-danger remove-board" id="${board.uid}">Remove This Board</button>
         </div>
       </div>
     </div>
@@ -23,11 +23,15 @@ const buildBoards = (board) => {
   $('body').on('click', '.remove-board', (e) => {
     e.stopImmediatePropagation();
     const firebaseKey = e.currentTarget.id;
+    console.warn(firebaseKey);
     $(`#remove${firebaseKey}`).remove();
     deleteBoard.deleteBoard(firebaseKey);
   });
-
-  pins.showAllPins();
+  $('body').on('click', '.see-associated-pins', (e) => {
+    e.stopImmediatePropagation();
+    const firebaseKey = e.currentTarget.id;
+    pins.showAllPins(firebaseKey);
+  });
   return domString;
 };
 
