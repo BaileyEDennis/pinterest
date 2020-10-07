@@ -20,7 +20,7 @@ const addBoardForm = () => {
             <option value="">Who's Board?</option>
           </select>
       </div>
-      <button id="addBoardButton" type="submit" class="btn btn-info">><i class="fas fa-plus-circle"></i>Add It!</button>
+      <button id="addBoardButton" type="submit" class="btn btn-info"><i class="fas fa-plus-circle"></i> Add It!</button>
 </form>
     `);
   userData.getAllUsers().then((response) => {
@@ -33,7 +33,7 @@ const addBoardForm = () => {
 
     const userInfo = {
       name: $('#name').val() || false,
-      image: $('#image').val() || false,
+      image: $('#picture').val() || false,
       useruid: $('#user').val() || false,
     };
 
