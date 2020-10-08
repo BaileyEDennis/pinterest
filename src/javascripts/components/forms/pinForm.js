@@ -6,7 +6,6 @@ const addPinForm = (user) => {
   $('#pinForm').html(`<h1>Create A Pin!</h1>
     <div id="user-message"></div>
     <form>
-      <div id="errorMsg"></div>
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" placeholder="e.x: New Sewing Machine, article title, etc.">
