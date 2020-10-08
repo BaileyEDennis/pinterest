@@ -9,7 +9,7 @@ const pinView = (obj) => {
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">${obj.name}</h5>
-        <button class="btn btn-warning update-pin">Update This Pin</button>
+        <button class="btn btn-warning update-pin" id="${obj.uid}">Update This Pin</button>
         <button class="btn btn-danger remove-pin" id="${obj.uid}">Remove This Pin</button>
         <a class="btn btn-info" href="${obj.url}" class="pinterest-link">Go To Site</a>
       </div>

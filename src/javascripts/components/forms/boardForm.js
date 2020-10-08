@@ -5,7 +5,6 @@ const addBoardForm = () => {
   $('#boardForm').html(`<h1>Create A Board!</h1>
     <div id="user-message"></div>
     <form>
-      <div id="errorMsg"></div>
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" placeholder="e.x: Cooking, Sewing, etc!">
@@ -38,9 +37,9 @@ const addBoardForm = () => {
     };
 
     if (Object.values(userInfo).includes(false)) {
-      $('#errorMsg').html('<div class="alert alert-danger" role="alert">All Fields Must Have Values!</div>');
+      $('#user-message').html('<div class="alert alert-danger" role="alert">All Fields Must Have Values!</div>');
     } else {
-      $('errorMsg').html('');
+      $('#user-message').html('');
       boardData
         .addBoard(userInfo)
         .then(() => {
