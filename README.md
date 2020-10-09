@@ -5,7 +5,7 @@
 This project was created to learn about firebase and sending / reciving data between a site and a remote API. We also used OAuth functionality to have users log in, and learned about CRUD functionality. The project is a basic copy of Pinterest, hence the project's name. 
 
 ## Technology Used
-Javascript, Sass, Google Firebase, NodeJS, JQuery
+Javascript, Sass, Google Firebase, NodeJS, JQuery, bootstrap
 
 ## Deployment
 Coming Soon!
