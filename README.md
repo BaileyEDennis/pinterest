@@ -8,7 +8,7 @@ This project was created to learn about firebase and sending / reciving data bet
 Javascript, Sass, Google Firebase, NodeJS, JQuery, bootstrap
 
 ## Deployment
-Coming Soon!
+[Check here!](https://pinterest-d6d6f.web.app/)
 
 ## Code Snippet
 
